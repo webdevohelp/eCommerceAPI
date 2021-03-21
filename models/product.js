@@ -17,7 +17,11 @@ const productSchema = mongoose.Schema({
         type: String,
         default: '',
     },
-    images: [{ type: String }],
+    images: [
+        {
+            type: String,
+        },
+    ],
     brand: {
         type: String,
         default: '',
@@ -58,6 +62,7 @@ const productSchema = mongoose.Schema({
 productSchema.virtual('id').get(function () {
     return this._id.toHexString();
 });
+
 productSchema.set('toJSON', {
     virtuals: true,
 });
